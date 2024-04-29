@@ -15,6 +15,8 @@ public partial class MainViewModel : BaseViewModel
 
   [ObservableProperty] 
   private ObservableCollection<Room> rooms;
+  [ObservableProperty]
+  private ObservableCollection<Table> tables;
 
   #endregion
 
@@ -25,11 +27,22 @@ public partial class MainViewModel : BaseViewModel
     //initialize the Rooms collection
     Rooms = new ObservableCollection<Room>();
     GetRooms();
+    Tables = new ObservableCollection<Table>();
+    GetTables();
   }
 
   #endregion
 
   #region Create interface collections
+
+
+  private void GetTables()
+  {
+    for (int i = 0; i < 200; i++)
+    {
+      Tables.Add(new Table { Name = $"Table {i + 1}" });
+    }
+  }
 
   //Create 7 Rooms with 50 Tables each
   private void GetRooms()

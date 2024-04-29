@@ -2,10 +2,10 @@
 
 namespace TestRoomsListTelerik.Views;
 
-public partial class MainPage : ContentPage
+public partial class MainPageOnlyTables : ContentPage
 {
 
-  public MainPage()
+  public MainPageOnlyTables()
   {
     InitializeComponent();
     BindingContext = new MainViewModel();

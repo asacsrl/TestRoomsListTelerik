@@ -7,33 +7,35 @@
              BackgroundColor="{x:StaticResource PrimaryColor}"
              x:DataType="{x:Type viewmodels:MainViewModel}">
 
-  <ScrollView>
-    <telerik:RadItemsControl 
-        x:Name="a"
-        ItemsSource="{Binding Rooms}">
-      <telerik:RadItemsControl.ItemTemplate>
-        <DataTemplate
+  <telerik:RadItemsControl
+    x:Name="a"
+    ItemsSource="{Binding Rooms}">
+    <telerik:RadItemsControl.ItemTemplate>
+      <DataTemplate
           x:DataType="{x:Type model:Room}">
-          <VerticalStackLayout>
-            <Border
+        <Grid
+          RowDefinitions="1*,15*">
+          <Border
+            Grid.Row="0"
                 Background="{x:StaticResource SecondaryColor}"
                 StrokeThickness="0"
                 StrokeShape="RoundRectangle 3,3,3,3"
                 Margin="5"
                 >
-              <Label
+            <Label
                   Margin="5"
                   TextColor="{x:StaticResource SecondaryForecolor}"
                   VerticalTextAlignment="Center"
                   Text="{Binding Name}" />
-            </Border>
-            <telerik:RadWrapLayout
+          </Border>
+          <telerik:RadWrapLayout
+            Grid.Row="1"
                 x:Name="b"
                 BindableLayout.ItemsSource="{Binding Tables}"
                 >
-              <BindableLayout.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type model:Table}">
-                  <Border 
+            <BindableLayout.ItemTemplate>
+              <DataTemplate x:DataType="{x:Type model:Table}">
+                <Border 
                             x:Name="TableItem"
                             Margin="5"
                             HorizontalOptions="Center"
@@ -41,39 +43,38 @@
                             StrokeShape="RoundRectangle 5,5,5,5"
                             StrokeThickness="3"
                             Padding="5">
-                    <Grid 
+                  <Grid 
                               RowDefinitions="2*,5*,2*"
                               HorizontalOptions="Fill"
                               WidthRequest="80"
                               HeightRequest="80">
-                      <Label
+                    <Label
                               Grid.Row="0"
                               TextColor="{x:StaticResource PrimaryForecolor}"
                               HorizontalOptions="Center"
                               FontSize="13"
                               Text="{Binding Name}"
                               />
-                      <Image 
+                    <Image 
                               Grid.Row="1" 
                               HorizontalOptions="Center"
                               VerticalOptions="Center"
                               Source="table_icon.png" />
-                      <Label 
+                    <Label 
                               Grid.Row="2" 
                               HorizontalOptions="Center"
                               TextColor="{x:StaticResource PrimaryForecolor}"
                               FontSize="10"
                               Text="{Binding TotalAmount,StringFormat='Total {0:N2} €'}"/>
-                    </Grid>
+                  </Grid>
 
-                  </Border>
-                </DataTemplate>
-              </BindableLayout.ItemTemplate>
-            </telerik:RadWrapLayout>
-          </VerticalStackLayout>
-        </DataTemplate>
-      </telerik:RadItemsControl.ItemTemplate>
-    </telerik:RadItemsControl>
-  </ScrollView>
+                </Border>
+              </DataTemplate>
+            </BindableLayout.ItemTemplate>
+          </telerik:RadWrapLayout>
+        </Grid>
+      </DataTemplate>
+    </telerik:RadItemsControl.ItemTemplate>
+  </telerik:RadItemsControl>
 
 </ContentPage>

@@ -64,4 +64,16 @@
 	  <Folder Include="Enums\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Views\MainPageOnlyTables.xaml.cs">
+	    <DependentUpon>MainPageOnlyTables.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\MainPageOnlyTables.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
